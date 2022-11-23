@@ -1,0 +1,29 @@
+
+<div class="container">
+    <h1>View Booking</h1>
+  
+    <a href="#" routerLink="/booking" class="btn btn-primary">Back</a>
+   
+    <div>
+        <strong>BookingId:</strong>
+        <p>{{ booking.bookingId }}</p>
+    </div>
+   
+    <div>
+        <strong> Check In:</strong>
+        <p>{{ booking.startDate}}</p>
+    </div>
+   
+    <div>
+        <strong>Check Out:</strong>
+        <p>{{ booking.endDate }}</p>
+    </div>
+    <div>
+        <strong>Number Of Occupant:</strong>
+        <p>{{booking.numberOfOccupant }}</p>
+    </div><div>
+        <strong>Amount:</strong>
+        <p>{{ booking.amount}}</p>
+    </div>
+   
+</div>

@@ -1,0 +1,113 @@
+<app-navbar></app-navbar>
+<a href="#" routerLink="/addbooking" class="btn btn-warning m-2">New Booking</a>
+
+<div class="container mt-2">
+</div>
+<div class="card-body">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>BookingId</th>
+                <th>Check In</th>
+                <th>Check Out</th>
+                <th>Number Of Occupants </th>
+                <th>Amount</th>
+                <th>Action</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of booking">
+                <td>{{b.bookingId}}</td>
+                <td>{{b.startDate | date:'EEEE dd MMMM YYYY '}}</td>
+                <td>{{b.endDate | date:'EEEE dd MMMM YYYY '}}</td>
+                <td>{{b.numberOfOccupant}}</td>
+                <td>{{b.amount}}</td>
+
+                <td>
+                    
+                    <a (click)="onClickModal(b)" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</a>
+                    <a (click)="delete(b.bookingId)" class="btn btn-primary m">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Update Booking</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="bookkingId">BookingId</label>
+                        <input name="bookingId" id="bookingId" type="number"
+                            [(ngModel)]="editBooking.bookingId" class="form-control">
+                        <!-- <div *ngIf="f['bookingId'].touched && f['bookingId'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['bookingId'].errors && f['bookingId'].errors['required']">Title is required.
+                            </div>
+                        </div> -->
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="startDate">startDate:</label>
+                        <input name="startDate" id="startDate" type="datetime"
+                            [(ngModel)]="editBooking.startDate" class="form-control" name="startDate">
+                        <!-- <div *ngIf="f['startDate'].touched && f['startDate'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['startDate'].errors && f['startDate'].errors['required']">Title is required.
+                            </div>
+                        </div> -->
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label for="endDate">endDate:</label>
+                        <input name="endDate" id="endDate" type="datetime" [(ngModel)]="editBooking.endDate"
+                            name="endDate" class="form-control">
+                        <!-- <div *ngIf="f['endDate'].touched && f['endDate'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['endDate'].errors && f['endDate'].errors['required']">Title is required.</div>
+                        </div> -->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="numberOfOccupant">numberOfOccupant:</label>
+                        <input name="numberOfOccupant" id="numberOfOccupant" type="number"
+                            [(ngModel)]="editBooking.numberOfOccupant" class="form-control">
+                        <!-- <div *ngIf="f['numberOfOccupant'].touched && f['numberOfOccupant'].invalid"
+                            class="alert alert-danger">
+                            <div *ngIf="f['numberOfOccupant'].errors && f['numberOfOccupant'].errors['required']">Title
+                                is required.</div>
+                        </div> -->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">amount:</label>
+                        <input name="amount" id="amount" type="number" [(ngModel)]="editBooking.amount"
+                            class="form-control">
+                        <!-- <div *ngIf="f['amount'].touched && f['amount'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['amount'].errors && f['amount'].errors['required']">Title is required.</div>
+                        </div> -->
+                    </div>
+                </form>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button (click)="onUpdate(editBooking)" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+   
+   <h1>Create New Room</h1>
+  
+   <a href="#" routerLink="/room" class="btn btn-primary">Back</a>
+       
+   <form [formGroup]=form (ngSubmit)="submit()">
+ 
+       <div class="form-group">
+         <label for="roomType">RoomType :</label>
+         <input 
+             formControlName="roomType" id="roomType"  type="text"  class="form-control">
+         <div *ngIf="f['roomType'].touched && f['roomType'].invalid" class="alert alert-danger">
+             <div *ngIf="f['roomType'].errors && f['roomType'].errors['required']">Title is required.</div>
+         </div>
+     </div>
+<div class="form-group">
+         <label for="roomPhone">RoomPhone :</label>
+         <input 
+             formControlName="roomPhone" id="roomPhone"  type="number"  class="form-control">
+         <div *ngIf="f['roomPhone'].touched && f['roomPhone'].invalid" class="alert alert-danger">
+             <div *ngIf="f['roomPhone'].errors && f['roomPhone'].errors['required']">Title is required.</div>
+         </div>
+     </div> <div class="form-group">
+         <label for="img">Image :</label>
+         <input 
+             formControlName="img" id="img"  type="text"  class="form-control">
+         <div *ngIf="f['img'].touched && f['img'].invalid" class="alert alert-danger">
+             <div *ngIf="f['img'].errors && f['img'].errors['required']">Title is required.</div>
+         </div>
+     </div>
+    
+     <button class="btn btn-primary" type="submit" >Submit</button>
+   
+    </form>
+
+
+
+ 
+
+
+
+
+
+
+
+

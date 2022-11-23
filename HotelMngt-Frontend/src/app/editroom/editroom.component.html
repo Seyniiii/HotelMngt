@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h1>Update</h1>
+
+  <a href="#" routerLink="/room" class="btn btn-primary">Back</a>
+      
+  <form [formGroup]=form (ngSubmit)="submit()">
+
+      
+    <div class="form-group">
+        <label for="roomId">RoomId:</label>
+        <input 
+            formControlName="roomId" id="roomId"  type="number"  [(ngModel)]="room.roomType" class="form-control">
+        <div *ngIf="f['roomId'].touched && f['roomId'].invalid" class="alert alert-danger">
+            <div *ngIf="f['roomId'].errors && f['roomId'].errors['required']">Title is required.</div>
+        </div>
+    </div>
+<div class="form-group">
+        <label for="roomPhone">RoomPhone :</label>
+        <input 
+            formControlName="roomPhone" id="roomPhone"  type="number"  [(ngModel)]="room.roomPhone" class="form-control">
+        <div *ngIf="f['roomPhone'].touched && f['roomPhone'].invalid" class="alert alert-danger">
+            <div *ngIf="f['roomPhone'].errors && f['roomPhone'].errors['required']">Title is required.</div>
+        </div>
+    </div> <div class="form-group">
+        <label for="img">Image :</label>
+        <input 
+            formControlName="img" id="img"  type="text"  [(ngModel)]="room.img" class="form-control">
+        <div *ngIf="f['img'].touched && f['img'].invalid" class="alert alert-danger">
+            <div *ngIf="f['img'].errors && f['img'].errors['required']">Title is required.</div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+

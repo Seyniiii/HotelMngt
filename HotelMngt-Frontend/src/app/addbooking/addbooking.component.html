@@ -1,0 +1,56 @@
+<div class="container">
+    <h1>Create New Post</h1>
+  
+    <a href="#" routerLink="/booking" class="btn btn-primary">Back</a>
+        
+    <form [formGroup]=form (ngSubmit)="submit()">
+  
+        <div class="form-group">
+          <label for="startDate">Check In :</label>
+          <input 
+              formControlName="startDate" id="startDate"  type="date"  class="form-control">
+          <div *ngIf="f['startDate'].touched && f['startDate'].invalid" class="alert alert-danger">
+              <div *ngIf="f['startDate'].errors && f['startDate'].errors['required']">Title is required.</div>
+          </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="endDate">Check Out:</label>
+        <input   formControlName="endDate"
+            id="endDate" 
+            type="date" 
+            class="form-control">
+        <div *ngIf="f['endDate'].touched && f['endDate'].invalid" class="alert alert-danger">
+            <div *ngIf="f['endDate'].errors && f['endDate'].errors['required']">Title is required.</div>
+        </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="numberOfOccupant">Number Of Occupants:</label>
+      <input 
+          formControlName="numberOfOccupant"
+          id="numberOfOccupant" 
+          type="number" 
+          class="form-control">
+      <div *ngIf="f['numberOfOccupant'].touched && f['numberOfOccupant'].invalid" class="alert alert-danger">
+          <div *ngIf="f['numberOfOccupant'].errors && f['numberOfOccupant'].errors['required']">Title is required.</div>
+      </div>
+  </div>
+ 
+  
+  
+  
+  <div class="form-group">
+    <label for="title">Amount:</label>
+    <input 
+        formControlName="amount"
+        id="amount" 
+        type="number" 
+        class="form-control">
+    <div *ngIf="f['amount'].touched && f['amount'].invalid" class="alert alert-danger">
+        <div *ngIf="f['amount'].errors && f['amount'].errors['required']">Title is required.</div>
+    </div>
+  </div>
+        <button class="btn btn-primary" type="submit" >Submit</button>
+    </form>
+  </div>

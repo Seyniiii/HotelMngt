@@ -1,0 +1,87 @@
+<app-navbar></app-navbar>
+
+
+
+<div class="container">
+    <h1>Update Booking</h1>
+  
+    <a href="#" routerLink="/booking" class="btn btn-primary">Back</a>
+        
+    <form [formGroup]="form" (ngSubmit)="submit()">
+  
+
+        <div class="form-group">
+            <label for="bookkingId">BookingId</label>
+            <input 
+                formControlName="bookingId" id="bookingId" type="number"  [(ngModel)]="booking.bookingId" class="form-control">
+            <div *ngIf="f['bookingId'].touched && f['bookingId'].invalid" class="alert alert-danger">
+                <div *ngIf="f['bookingId'].errors && f['bookingId'].errors['required']">Title is required.</div>
+            </div>
+        </div>
+  
+        
+      <div class="form-group">
+        <label for="startDate">startDate:</label>
+        <input 
+            formControlName="startDate"
+            id="startDate" 
+            type="datetime" 
+            [(ngModel)]="booking.startDate"
+            class="form-control"
+            name="startDate">
+        <div *ngIf="f['startDate'].touched && f['startDate'].invalid" class="alert alert-danger">
+            <div *ngIf="f['startDate'].errors && f['startDate'].errors['required']">Title is required.</div>
+        </div>
+    </div>
+  
+    
+ 
+  
+  <div class="form-group">
+    <label for="endDate">endDate:</label>
+    <input 
+        formControlName="endDate"
+        id="endDate" 
+        type="datetime" 
+        [(ngModel)]="booking.endDate"
+        name="endDate"
+        class="form-control">
+    <div *ngIf="f['endDate'].touched && f['endDate'].invalid" class="alert alert-danger">
+        <div *ngIf="f['endDate'].errors && f['endDate'].errors['required']">Title is required.</div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="numberOfOccupant">numberOfOccupant:</label>
+    <input 
+        formControlName="numberOfOccupant"
+        id="numberOfOccupant" 
+        type="number" 
+        [(ngModel)]="booking.numberOfOccupant"
+        class="form-control">
+    <div *ngIf="f['numberOfOccupant'].touched && f['numberOfOccupant'].invalid" class="alert alert-danger">
+        <div *ngIf="f['numberOfOccupant'].errors && f['numberOfOccupant'].errors['required']">Title is required.</div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="amount">amount:</label>
+    <input 
+        formControlName="amount"
+        id="amount" 
+        type="number" 
+        [(ngModel)]="booking.amount"
+        class="form-control">
+    <div *ngIf="f['amount'].touched && f['amount'].invalid" class="alert alert-danger">
+        <div *ngIf="f['amount'].errors && f['amount'].errors['required']">Title is required.</div>
+    </div>
+  </div>
+  
+  
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+  </div>
+
+
+
+
